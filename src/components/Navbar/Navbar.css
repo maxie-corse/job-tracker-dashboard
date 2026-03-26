@@ -286,3 +286,8 @@
     display: block;
   }
 }
+
+.sidebar-footer button {
+  font-size: 13px;
+  justify-content: center;
+}

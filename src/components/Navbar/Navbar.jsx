@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { NavLink, useLocation } from 'react-router-dom';
 import {
   RiDashboardLine, RiFileList3Line, RiAddCircleLine,
@@ -18,6 +18,20 @@ function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const { stats } = useApplications();
   const location = useLocation();
+  const [theme, setTheme] = useState('dark');
+
+  useEffect(() => {
+    const saved = localStorage.getItem('theme') || 'dark';
+    setTheme(saved);
+    document.documentElement.setAttribute('data-theme', saved);
+  }, []);
+
+  const toggleTheme = () => {
+    const next = theme === 'light' ? 'dark' : 'light';
+    setTheme(next);
+    document.documentElement.setAttribute('data-theme', next);
+    localStorage.setItem('theme', next);
+  };
 
   return (
     <>
@@ -42,7 +56,7 @@ function Navbar() {
             <RiBriefcaseLine size={20} />
           </div>
           <div>
-            <span className="logo-text">JobLens</span>
+            <span className="logo-text">KaamDhanda</span>
             <span className="logo-sub">Job Tracker</span>
           </div>
         </div>
@@ -121,6 +135,11 @@ function Navbar() {
               <div className="user-role">Active Search</div>
             </div>
           </div>
+
+          {/* Theme toggle */}
+          <button onClick={toggleTheme} className="btn btn-ghost" style={{ marginTop: '12px', width: '100%' }}>
+            {theme === 'light' ? '🌙 Dark Mode' : '☀️ Light Mode'}
+          </button>
         </div>
       </nav>
     </>
