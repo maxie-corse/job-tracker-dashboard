@@ -251,40 +251,6 @@ function Analytics() {
         </div>
 
       </div>
-
-      {/* Summary table */}
-      {applications.length > 0 && (
-        <div className="card analytics-summary-card">
-          <h3 className="analytics-chart-title" style={{ marginBottom: 16 }}>
-            Status Summary
-          </h3>
-          <div className="summary-rows">
-            {[
-              { label: 'Applied',      count: stats.applied,      color: 'var(--blue)',   bar: 'blue'  },
-              { label: 'Interviewing', count: stats.interviewing,  color: 'var(--amber)',  bar: 'amber' },
-              { label: 'Offer',        count: stats.offers,        color: 'var(--green)',  bar: 'green' },
-              { label: 'Rejected',     count: stats.rejected,      color: 'var(--red)',    bar: 'red'   },
-            ].map(row => (
-              <div key={row.label} className="summary-row">
-                <span className="summary-label" style={{ color: row.color }}>{row.label}</span>
-                <div className="summary-track">
-                  <div
-                    className="summary-fill"
-                    style={{
-                      width: stats.total ? `${(row.count / stats.total) * 100}%` : '0%',
-                      background: row.color,
-                    }}
-                  />
-                </div>
-                <span className="summary-pct">
-                  {stats.total ? Math.round((row.count / stats.total) * 100) : 0}%
-                </span>
-                <span className="summary-count">{row.count}</span>
-              </div>
-            ))}
-          </div>
-        </div>
-      )}
     </div>
   );
 }
