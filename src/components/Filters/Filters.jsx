@@ -1,8 +1,21 @@
+// The Filters component is a reusable, controlled UI component that allows users to filter job applications 
+// by status, platform, and location, and also sort them., while keeping state managed outside.
+// It receives all state and handlers as props
+// The dropdown options are dynamically generated from constants
+// It also includes conditional rendering for the reset button based on active filters
+
 import React from 'react';
 import { RiFilterLine, RiCloseLine } from 'react-icons/ri';
 import { STATUS_OPTIONS, PLATFORM_OPTIONS, LOCATION_OPTIONS, SORT_OPTIONS } from '../../utils/helpers';
 import './Filters.css';
 
+// Props
+// filters - object storing current filter values
+// onFilterChange - function to update filters
+// sortKey - current sorting option
+// onSortChange - function to update sorting
+// onReset - clears all filters
+// activeCount - number of filters currently applied
 function Filters({ filters, onFilterChange, sortKey, onSortChange, onReset, activeCount }) {
   return (
     <div className="filters-row">
