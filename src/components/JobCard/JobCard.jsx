@@ -1,3 +1,6 @@
+// JobCard is a reusable UI component that displays all details of a job application 
+// along with actions like edit, delete, and bookmark
+
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import {
