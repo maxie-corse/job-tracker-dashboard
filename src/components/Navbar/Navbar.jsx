@@ -129,10 +129,10 @@ function Navbar() {
         {/* Footer */}
         <div className="sidebar-footer">
           <div className="sidebar-footer-inner">
-            <div className="user-avatar">JS</div>
+            <div className="user-avatar">B</div>
             <div>
-              <div className="user-name">Job Seeker</div>
-              <div className="user-role">Active Search</div>
+              <div className="user-name">Berozgaar</div>
+              <div className="user-role">Active Search  </div>
             </div>
           </div>
 
